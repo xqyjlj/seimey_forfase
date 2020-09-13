@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>1250</width>
-    <height>581</height>
+    <width>1208</width>
+    <height>637</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -51,7 +51,7 @@
                </widget>
               </item>
               <item row="0" column="1">
-               <widget class="QLineEdit" name="lineEdit_5"/>
+               <widget class="QLineEdit" name="lineE_pga_drivername"/>
               </item>
              </layout>
             </widget>
@@ -73,7 +73,7 @@
                </widget>
               </item>
               <item row="0" column="1">
-               <widget class="QLineEdit" name="lineEdit_4"/>
+               <widget class="QLineEdit" name="lineE_pga_carnum"/>
               </item>
              </layout>
             </widget>
@@ -95,7 +95,7 @@
                </widget>
               </item>
               <item row="0" column="1">
-               <widget class="QLineEdit" name="lineEdit_6"/>
+               <widget class="QLineEdit" name="lineE_pga_place"/>
               </item>
              </layout>
             </widget>
@@ -117,7 +117,7 @@
                </widget>
               </item>
               <item row="0" column="1">
-               <widget class="QLineEdit" name="lineEdit_7"/>
+               <widget class="QLineEdit" name="lineE_pga_layout"/>
               </item>
              </layout>
             </widget>
@@ -139,7 +139,7 @@
                </widget>
               </item>
               <item row="0" column="1">
-               <widget class="QLineEdit" name="lineEdit_8"/>
+               <widget class="QLineEdit" name="lineE_pga_situation"/>
               </item>
              </layout>
             </widget>
@@ -152,6 +152,9 @@
                <verstretch>0</verstretch>
               </sizepolicy>
              </property>
+             <property name="statusTip">
+              <string> 路程，单位为米</string>
+             </property>
              <layout class="QGridLayout" name="gridLayout_13">
               <item row="0" column="0">
                <widget class="NavLabel" name="navLabel_9">
@@ -161,9 +164,26 @@
                </widget>
               </item>
               <item row="0" column="1">
-               <widget class="QLineEdit" name="lineEdit_9"/>
+               <widget class="QLineEdit" name="lineE_pga_distance"/>
               </item>
              </layout>
+            </widget>
+           </item>
+           <item row="8" column="0">
+            <widget class="QCommandLinkButton" name="comLB_pga_clear">
+             <property name="text">
+              <string>清零</string>
+             </property>
+             <property name="icon">
+              <iconset resource="../gdut_fsae.qrc">
+               <normaloff>:/icon/qrc/icon/clear.png</normaloff>:/icon/qrc/icon/clear.png</iconset>
+             </property>
+             <property name="iconSize">
+              <size>
+               <width>40</width>
+               <height>40</height>
+              </size>
+             </property>
             </widget>
            </item>
            <item row="6" column="0">
@@ -189,7 +209,7 @@
                </widget>
               </item>
               <item row="0" column="1">
-               <widget class="QComboBox" name="comboBox">
+               <widget class="QComboBox" name="comboB_pga_testmode">
                 <property name="sizePolicy">
                  <sizepolicy hsizetype="Expanding" vsizetype="Fixed">
                   <horstretch>0</horstretch>
@@ -228,7 +248,7 @@
                </widget>
               </item>
               <item row="0" column="1">
-               <widget class="QComboBox" name="comboBox_2">
+               <widget class="QComboBox" name="comboB_pga_direction">
                 <property name="sizePolicy">
                  <sizepolicy hsizetype="Expanding" vsizetype="Fixed">
                   <horstretch>0</horstretch>
@@ -253,8 +273,85 @@
           </layout>
          </widget>
         </item>
+        <item row="0" column="2">
+         <widget class="WaveChart" name="waveC_pga_speed">
+          <property name="sizePolicy">
+           <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
+            <horstretch>0</horstretch>
+            <verstretch>0</verstretch>
+           </sizepolicy>
+          </property>
+          <property name="maxValue">
+           <double>60.000000000000000</double>
+          </property>
+          <property name="xStep">
+           <double>10.000000000000000</double>
+          </property>
+          <property name="yStep">
+           <double>20.000000000000000</double>
+          </property>
+          <property name="space">
+           <double>30.000000000000000</double>
+          </property>
+          <property name="title">
+           <string>速度·曲线</string>
+          </property>
+          <property name="smooth">
+           <bool>false</bool>
+          </property>
+          <property name="showHLine">
+           <bool>true</bool>
+          </property>
+          <property name="showPoint">
+           <bool>true</bool>
+          </property>
+          <property name="showPointBg">
+           <bool>false</bool>
+          </property>
+          <property name="bgColorStart">
+           <color>
+            <red>255</red>
+            <green>255</green>
+            <blue>255</blue>
+           </color>
+          </property>
+          <property name="bgColorEnd">
+           <color alpha="253">
+            <red>255</red>
+            <green>255</green>
+            <blue>255</blue>
+           </color>
+          </property>
+          <property name="textColor">
+           <color>
+            <red>0</red>
+            <green>0</green>
+            <blue>0</blue>
+           </color>
+          </property>
+          <property name="pointColor">
+           <color>
+            <red>0</red>
+            <green>0</green>
+            <blue>255</blue>
+           </color>
+          </property>
+         </widget>
+        </item>
         <item row="0" column="1">
-         <widget class="QTreeWidget" name="treeWidget_2">
+         <widget class="QTreeWidget" name="tree_pga_info">
+          <property name="sizePolicy">
+           <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
+            <horstretch>0</horstretch>
+            <verstretch>0</verstretch>
+           </sizepolicy>
+          </property>
+          <property name="minimumSize">
+           <size>
+            <width>330</width>
+            <height>0</height>
+           </size>
+          </property>
           <column>
            <property name="text">
             <string>圈数</string>
@@ -267,16 +364,9 @@
           </column>
           <column>
            <property name="text">
-            <string>时间</string>
+            <string>时间(ms)</string>
            </property>
           </column>
-         </widget>
-        </item>
-        <item row="0" column="2">
-         <widget class="WaveChart" name="waveChart_3">
-          <property name="title">
-           <string>速度·曲线</string>
-          </property>
          </widget>
         </item>
        </layout>
@@ -296,7 +386,11 @@
          <widget class="QWidget" name="widget" native="true">
           <layout class="QGridLayout" name="gridLayout_2">
            <item row="0" column="0">
-            <widget class="NavLabel" name="navLabel"/>
+            <widget class="NavLabel" name="navLabel">
+             <property name="text">
+              <string>方向盘转角</string>
+             </property>
+            </widget>
            </item>
            <item row="0" column="1">
             <widget class="QLineEdit" name="lineEdit"/>
@@ -308,7 +402,11 @@
          <widget class="QWidget" name="widget_2" native="true">
           <layout class="QGridLayout" name="gridLayout_3">
            <item row="0" column="0">
-            <widget class="NavLabel" name="navLabel_2"/>
+            <widget class="NavLabel" name="navLabel_2">
+             <property name="text">
+              <string>后转转角</string>
+             </property>
+            </widget>
            </item>
            <item row="0" column="1">
             <widget class="QLineEdit" name="lineEdit_2"/>
@@ -320,7 +418,11 @@
          <widget class="QWidget" name="widget_3" native="true">
           <layout class="QGridLayout" name="gridLayout_4">
            <item row="0" column="0">
-            <widget class="NavLabel" name="navLabel_3"/>
+            <widget class="NavLabel" name="navLabel_3">
+             <property name="text">
+              <string>后转实际转角</string>
+             </property>
+            </widget>
            </item>
            <item row="0" column="1">
             <widget class="QLineEdit" name="lineEdit_3"/>
@@ -383,7 +485,7 @@
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>1250</width>
+     <width>1208</width>
      <height>26</height>
     </rect>
    </property>
@@ -412,6 +514,8 @@
    <header>wavechart.h</header>
   </customwidget>
  </customwidgets>
- <resources/>
+ <resources>
+  <include location="../gdut_fsae.qrc"/>
+ </resources>
  <connections/>
 </ui>

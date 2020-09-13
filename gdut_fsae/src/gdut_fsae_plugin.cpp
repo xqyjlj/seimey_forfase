@@ -5,19 +5,25 @@ gdut_fsae_plugin::gdut_fsae_plugin(QObject *parent) : QObject(parent)
 
 }
 
-void gdut_fsae_plugin::show()                            // 显示窗口
+void gdut_fsae_plugin::show()
 {
     w = new MainWindow();
     w->show();
-    connect(w, SIGNAL(windows_Close(QString)), this, SLOT(close_Event(QString)), Qt::UniqueConnection);
+    connect(w, SIGNAL(windows_close(QString)), this, SLOT(close_event(QString)), Qt::UniqueConnection);
+    connect(w, SIGNAL(send_msg(QByteArray)), this, SLOT(forward_msg(QByteArray)), Qt::UniqueConnection);
 }
 
-void gdut_fsae_plugin::rec_Msg(QString msg)
+void gdut_fsae_plugin::rec_msg(QByteArray msg)
 {
-    w->rec_Msg(msg.toLatin1());
+    w->rec_msg(msg);
 }
 
-void gdut_fsae_plugin::close_Event(QString msg)
+void gdut_fsae_plugin::close_event(QString msg)
 {
-    emit plugin_Close(msg);
+    emit plugin_close(msg);
+}
+
+void gdut_fsae_plugin::forward_msg(QByteArray msg)
+{
+    emit send_msg(msg);
 }

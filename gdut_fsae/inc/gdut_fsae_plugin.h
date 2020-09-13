@@ -15,14 +15,14 @@ class gdut_fsae_plugin : public QObject, public gdut_fsae_interface
 public:
     explicit gdut_fsae_plugin(QObject *parent = nullptr);
 
-    virtual void rec_Msg(QString msg) ;          /* 接收到来自插件管理器的消息 */
+    virtual void rec_msg(QByteArray msg) ;          /* 接收到来自插件管理器的消息 */
     virtual void show();                        /*  显示窗口 */
 signals:
-
-    void plugin_Close(QString msg);
+    void send_msg(QByteArray msg);
+    void plugin_close(QString msg);
 private slots:
-    void close_Event(QString msg);
-
+    void close_event(QString msg);
+    void forward_msg(QByteArray msg);
 private:
     MainWindow *w;
 
