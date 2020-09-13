@@ -153,6 +153,17 @@ void MainWindow::save_excel(void)
     xlsx.write("C2", ui->lineE_pga_place->text());
     xlsx.write("D2", ui->lineE_pga_layout->text());
     xlsx.write("E2", ui->lineE_pga_situation->text());
-    xlsx.write("G2", ui->lineE_pga_distance->text());
+    xlsx.write("F2", ui->lineE_pga_distance->text());
+
+    QTreeWidgetItemIterator it(ui->tree_pga_info);
+    int index = 2;
+    while (*it)
+    {
+        xlsx.write(QString("G") + QString::number(index), (*it)->text(0));
+        xlsx.write(QString("H") + QString::number(index), (*it)->text(1));
+        xlsx.write(QString("I") + QString::number(index), (*it)->text(2));
+        index++;
+        it++;
+    }
     xlsx.saveAs(filename);
 }
