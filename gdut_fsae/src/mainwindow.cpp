@@ -32,6 +32,10 @@ void MainWindow::rec_msg(QByteArray msg)
         {
             gate_speed_get(msg);
         }
+        else if (msg.data()[0] == 0x1B)
+        {
+            LOG_DEBUG << QString::fromLatin1(msg);
+        }
     }
 }
 void MainWindow::create_floder(void)
@@ -70,10 +74,6 @@ void MainWindow::closeEvent(QCloseEvent *event)
             event->ignore();
             return;
         }
-
-//        QXlsx::Document xlsx;
-//        xlsx.write("A1", "Hello Qt!");
-//        xlsx.saveAs("Test.xlsx");
     }
     event->accept();
     emit windows_close("gdut_fsae_plugin");
